@@ -50,9 +50,6 @@ form {
   @apply flex flex-col items-start gap-8 w-full;
 }
 
-/* For creating reusable design patterns, like buttons or cards. */
-/* Appears after base styles but before utility classes in the CSS cascade. */
-/* Second highest priority in the CSS cascade. */
 @layer components {
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
@@ -120,35 +117,30 @@ form {
   }
 }
 
-/* Used to define custom utility classes (like bg-red-stripes or text-shadow). */
-/* These behave like Tailwind's built-in utility classes. */
-/* Highest priority in the CSS cascade. */
-@layer utilities {
-  .bg-gradient {
-    background: linear-gradient(to bottom, #f0f4ff 60%, #fa7185cc);
-  }
+@utility bg-gradient {
+  background: linear-gradient(to bottom, #f0f4ff 60%, #fa7185cc);
+}
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
-  }
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+}
 
-  .gradient-hover {
-    @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200;
-  }
+@utility gradient-hover {
+  @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200;
+}
 
-  .primary-gradient {
-    background: linear-gradient(to bottom, #8e98ff, #606beb);
-    box-shadow: 0px 74px 21px 0px #6678ef00;
-  }
+@utility primary-gradient {
+  background: linear-gradient(to bottom, #8e98ff, #606beb);
+  box-shadow: 0px 74px 21px 0px #6678ef00;
+}
 
-  .primary-gradient-hover {
-    background: linear-gradient(to bottom, #717dff, #4957eb);
-  }
+@utility primary-gradient-hover {
+  background: linear-gradient(to bottom, #717dff, #4957eb);
+}
 
-  .inset-shadow {
-    box-shadow: inset 0 0 12px 0 rgba(36, 99, 235, 0.2);
-    backdrop-filter: blur(10px);
-  }
+@utility inset-shadow {
+  box-shadow: inset 0 0 12px 0 rgba(36, 99, 235, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 @keyframes fadeIn {
